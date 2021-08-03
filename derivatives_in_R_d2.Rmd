@@ -1,0 +1,61 @@
+---
+title: "eds_212_day2"
+author: "Shale"
+date: "8/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## R Markdown EOD practice with calculus and penguins
+
+
+### Calc practice A
+
+```{r}
+fx = expression(x^2)
+df_dx = D(expr = fx, name = "x")
+x = 3
+eval(expr = df_dx)
+```
+
+
+### Calc practice B
+
+```{r}
+pa = expression(2*(3*a+2)^4 - 5)
+dp_da = D(expr = pa, name = "a")
+a = 1.2
+eval(expr = dp_da)
+```
+
+
+### Calc practice C
+
+```{r}
+gt = expression((-4*t) / (t^2 + 1)^3)
+dg_dt = D(expr = gt, name = "t")
+t = 0
+eval(expr = dg_dt)
+```
+
+
+### Calc practice higher order 
+
+```{r}
+gz = expression(4.6 - 1.9 * z^3)
+dg_dz = D(expr = gz, name = "z")
+dg_dz
+d2z_dz2 = D(expr = dg_dz, name = "z")
+d2z_dz2
+```
+
+### Calc practice partial derivatives
+
+```{r}
+
+```
