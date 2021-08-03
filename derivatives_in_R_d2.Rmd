@@ -57,5 +57,45 @@ d2z_dz2
 ### Calc practice partial derivatives
 
 ```{r}
-
+fxyz = expression(2*(x^2)*y - 3*x + 1 + 4*(z^4)*x)
+fx_part = D(expr = fxyz, name = "x")
+fx_part
+fy_part = D(expr = fxyz, name = "y")
+fy_part
+fz_part = D(expr = fxyz, name = "z")
+fz_part
 ```
+
+### ggplot2 practice
+
+```{r}
+fx = function(x) {
+  (2.4 * exp(-0.05*x) * sin(x))
+}
+ggplot(data.frame(x = c(-0.5, 0.5)), aes(x=x)) +
+         stat_function(fun = fx)
+```
+
+## And now, for something completely different: penguins :)
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  labs(x = "Bill length (mm)", y = "Bill depth (mm)", title = "Ratio of Penguin bill length to depth by species")
+```
+
+## jitterplot
+
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_jitter(position = "jitter", aes(color = species)) +
+  labs(x = "Species", y = "Flipper length (mm)", title = "Penguin Flipper Length by Species")
+```
+
+## For comparison,  to see the difference without jitter
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_point(aes(color = species)) +
+  labs(x = "Species", y = "Flipper length (mm)", title = "Penguin Flipper Length by Species")
+```
+
